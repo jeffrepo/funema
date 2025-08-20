@@ -15,7 +15,7 @@ class SaleOrder(models.Model):
                 # Buscar todos los pickings relacionados con esta orden
                 pickings = self.env['stock.picking'].search([
                     ('origin', '=', order.name),
-                    ('state', 'in', ['draft', 'waiting', 'confirmed'])
+                    ('state', 'in', ['draft', 'waiting', 'confirmed', 'assigned'])
                 ])
                 print("pickings -->", pickings)
                 # Cancelar y eliminar los pickings
