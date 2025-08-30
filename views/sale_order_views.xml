@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+        <record id="view_order_product_search_inherit" model="ir.ui.view">
+            <field name="name">sale.order.product.search.inherit</field>
+            <field name="model">sale.report</field>
+            <field name="inherit_id" ref="sale.view_order_product_search"/>
+            <field name="arch" type="xml">
+                
+                <xpath expr="//filter[@name='filter_date']" position="after">
+                    <filter string="Por Marca" name="group_by_brand" context="{'group_by':'brand'}"/>
+                </xpath>
+                
+            </field>
+        </record>
+
+        <record id="funema_sale_order_view_form_inherit" model="ir.ui.view">
+            <field name="name">funema.sale.order.view.form.inherit</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                
+                <xpath expr="//field[@name='order_line']/form//field[@name='price_unit']" position="after">
+                    <field name="brand" string="Marca" optional="show"/>
+                </xpath>
+
+                <xpath expr="//field[@name='order_line']/list//field[@name='price_unit']" position="after">
+                    <field name="brand" string="Marca" optional="show"/>
+                </xpath>
+                
+            </field>
+        </record>
+        
+    </data>
+</odoo>
