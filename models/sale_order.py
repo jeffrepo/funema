@@ -23,3 +23,13 @@ class SaleOrder(models.Model):
                 pickings.unlink()
         
         return res
+    
+class SaleOrder(models.Model):
+    _inherit = 'sale.order.line'
+
+    brand = fields.Char(
+        string='Marca',
+        related='product_id.product_tmpl_id.x_studio_marca',
+        store=True,
+        readonly=True
+    )

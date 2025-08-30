@@ -19,11 +19,12 @@
     'license': 'LGPL-3',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'sale','stock'],
+    'depends': ['base', 'sale', 'sale_management', 'stock'],
 
     # always loaded
     'data': [
         # 'security/ir.model.access.csv',
+        'views/sale_order_views.xml',
         'views/stock_quant_views.xml',
         'views/stock_warehouse_views.xml',        
     ],
